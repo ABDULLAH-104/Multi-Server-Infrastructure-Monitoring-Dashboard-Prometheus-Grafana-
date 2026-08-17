@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'web-server'
+    static_configs:
+      - targets: ['web-server-exporter:9100']
+        labels:
+          server: 'Web Server'
+
+  - job_name: 'db-server'
+    static_configs:
+      - targets: ['db-server-exporter:9100']
+        labels:
+          server: 'Database Server'
+
+  - job_name: 'app-server'
+    static_configs:
+      - targets: ['app-server-exporter:9100']
+        labels:
+          server: 'App Server'
